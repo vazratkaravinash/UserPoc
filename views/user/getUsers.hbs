@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <label id="failureMessage">{{failure}}</label>
+    <label id="successMessage">{{success}} </label>
+    <h3 style="margin-top: 50px">User Details:</h3>
+    <table>
+
+        {{#if data}}
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {{#if data.length }}
+        {{#each data}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.address}}</td>
+            <td>{{this.city}}</td>
+            <td>{{this.state}}</td>
+            <td>{{this.mobile}}</td>
+            <td>{{this.email}}</td>
+            <td><button><a href="/updateUser?id={{this.id}}">Update</a></button></td>
+            <td><button><a href="/deleteUser?id={{this.id}}">Delete</a></button></td>
+        </tr>
+        {{/each}}
+        {{else}}
+        <div>
+            No Records found!
+        </div>
+        {{/if}}
+        {{/if}}
+    </table>
+
+</body>
+
+</html>

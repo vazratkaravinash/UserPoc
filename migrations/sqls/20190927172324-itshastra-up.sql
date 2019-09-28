@@ -1,0 +1,15 @@
+
+-- user table
+
+CREATE TABLE IF NOT EXISTS users
+( 
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    dob DATE NOT NULL,
+    address VARCHAR(200) NOT NULL,
+    city VARCHAR(25) NOT NULL,
+    state VARCHAR(50) NOT NULL,
+    mobile VARCHAR(10) NOT NULL,
+    email VARCHAR(40) NOT NULL
+);
+
