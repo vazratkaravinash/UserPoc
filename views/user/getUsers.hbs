@@ -3,6 +3,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    </script>
 </head>
 
 <body>
@@ -10,9 +12,9 @@
     <label id="failureMessage">{{failure}}</label>
     <label id="successMessage">{{success}} </label>
     <h3 style="margin-top: 50px">User Details:</h3>
-    <table>
+    {{#if data}}
 
-        {{#if data}}
+    <table>
         <tr>
             <th>Name</th>
             <th>Address</th>
@@ -36,13 +38,14 @@
             <td><button><a href="/deleteUser?id={{this.id}}">Delete</a></button></td>
         </tr>
         {{/each}}
-        {{else}}
-        <div>
-            No Records found!
-        </div>
-        {{/if}}
+
         {{/if}}
     </table>
+    {{else}}
+    <div style="margin-top: 200px, font-size: 20px">
+        No Records found!
+    </div>
+    {{/if}}
 
 </body>
 

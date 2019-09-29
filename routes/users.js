@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.get('/getUser', UserController.getUser);
-
 router.get("/deleteUser", UserController.deleteUser);
 router.get("/updateUser", UserController.getUserById);
 router.post("/updateUser", UserController.updateUser)

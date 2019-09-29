@@ -2,6 +2,11 @@
 
 const UserModel = require("../model/users");
 
+/**
+ * Function to add the user details.
+ * @param {Object} req 
+ * @param {Object} res 
+ */
 const addUser = (req, res) => {
     if (!req.body) {
         res.render()
@@ -16,6 +21,11 @@ const addUser = (req, res) => {
     }
 }
 
+/**
+ * Function to get all user details.
+ * @param {Object} req 
+ * @param {Object} res 
+ */
 const getUser = (req, res) => {
     UserModel.getAllUser().then(users => {
         res.render("user/getUsers", { layout: "userLayout", data: users })
@@ -24,6 +34,11 @@ const getUser = (req, res) => {
     })
 }
 
+/**
+ * Function to delete user.
+ * @param {Object} req 
+ * @param {Object} res 
+ */
 const deleteUser = (req, res) => {
     UserModel.deleteUser(req.query.id).then(isUserDeleted => {
         UserModel.getAllUser().then(users => {
@@ -34,6 +49,11 @@ const deleteUser = (req, res) => {
     })
 }
 
+/**
+ * Function to get the user details by user ID.
+ * @param {Object} req 
+ * @param {Object} res 
+ */
 const getUserById = (req, res) => {
     UserModel.getUserById(req.query.id).then(user => {
         if (user.length) {
@@ -49,12 +69,16 @@ const getUserById = (req, res) => {
     })
 }
 
+/**
+ * Function to update the user details.
+ * @param {Object} req 
+ * @param {Object} res 
+ */
 const updateUser = (req, res) => {
     if (!req.body) {
         res.render()
     }
     else {
-        console.log("->>>>----->>>",req.body)
         UserModel.updateUser(req.body).then(isUserAdded => {
             return UserModel.getAllUser().then(users => {
                 res.render("user/getUsers", { layout: "userLayout", data: users, error: "Successfully Updated the User" })
@@ -64,6 +88,7 @@ const updateUser = (req, res) => {
         })
     }
 }
+
 module.exports = {
     addUser,
     getUser,

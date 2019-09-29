@@ -3,8 +3,6 @@
 const UserSql = require("../migrations/query/user.query");
 const db = require("../helpers/mysql");
 
-console.log(UserSql)
-
 /**
  * Funcion to add new user into the database.
  * @param {Object} userObject 
@@ -27,6 +25,10 @@ const addUser = (userObject) => {
     });
 }
 
+/**
+ * Function to delete user.
+ * @param {Number} id 
+ */
 const deleteUser = (id) => {
     return new Promise((resolve, reject) => {
         db.mysqlConnection().then(connection => {
@@ -45,6 +47,9 @@ const deleteUser = (id) => {
     });
 }
 
+/**
+ * Function to get all user details.
+ */
 const getAllUser = () => {
     return new Promise((resolve, reject) => {
         db.mysqlConnection().then(connection => {
@@ -63,6 +68,10 @@ const getAllUser = () => {
     });
 }
 
+/**
+ * Function to update user details.
+ * @param {Object} userObj 
+ */
 const updateUser = (userObj) => {
     return new Promise((resolve, reject) => {
         db.mysqlConnection().then(connection => {
@@ -83,6 +92,10 @@ const updateUser = (userObj) => {
     });
 }
 
+/**
+ * Function to get user details by id.
+ * @param {Number} id 
+ */
 const getUserById = (id) => {
     return new Promise((resolve, reject) => {
         db.mysqlConnection().then(connection => {
